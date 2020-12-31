@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header %}{{ header }}{% endblock %}
+
+{% block content %}
+    <style>
+        form > .form-group > label {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+    </style>
+    {# Display a form #}
+    {% load bootstrap4 %}
+    {% bootstrap_messages %}
+    <form action="{{ form_url }}" method="{{ method }}" class="form col-8 p-0">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                Save
+            </button>
+        {% endbuttons %}
+    </form>
+{% endblock %}
